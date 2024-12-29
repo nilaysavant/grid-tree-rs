@@ -57,6 +57,9 @@ pub use glam;
 #[cfg(feature = "bevy_math")]
 pub use bevy_math;
 
+/// Re-export the `ndshape` crate.
+pub use ndshape;
+
 /// A "level of detail" in a [`Tree`].
 pub type Level = u8;
 
