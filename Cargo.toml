@@ -8,7 +8,9 @@ repository = "https://github.com/bonsairobo/grid-tree-rs"
 keywords = ["grid", "quadtree", "octree", "spatial", "voxel"]
 
 [features]
-default = ["glam"]
+default = ["bevy_math"]
+glam = ["dep:glam"]
+bevy_math = ["dep:bevy_math"]
 
 [dependencies]
 ahash = "0.8"
@@ -19,3 +21,4 @@ ndshape = "0.3"
 
 # The default choice of VectorKey.
 glam = { version = "0.25", optional = true }
+bevy_math = { version = "0.15", optional = true }

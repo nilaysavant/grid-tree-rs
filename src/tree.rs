@@ -847,7 +847,11 @@ pub enum VisitCommand {
 mod test {
     use super::*;
 
+    #[cfg(feature = "bevy_math")]
+    use crate::bevy_math::IVec3;
+    #[cfg(feature = "glam")]
     use crate::glam::IVec3;
+
     use crate::OctreeI32;
 
     #[test]

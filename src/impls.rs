@@ -1,6 +1,12 @@
 use crate::{BranchShape, ChildIndex, Level, Tree, VectorKey};
 
+#[cfg(feature = "glam")]
 use glam::{IVec2, IVec3, UVec2, UVec3};
+
+#[cfg(feature = "bevy_math")]
+use bevy_math::{IVec2, IVec3, UVec2, UVec3};
+
+
 use ndshape::{
     ConstPow2Shape2i32, ConstPow2Shape2u32, ConstPow2Shape3i32, ConstPow2Shape3u32, ConstShape,
 };

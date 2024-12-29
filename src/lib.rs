@@ -47,14 +47,15 @@ pub use shape::*;
 pub use tree::*;
 pub use vector_key::*;
 
-#[cfg(feature = "glam")]
-mod impl_glam;
+mod impls;
 
-#[cfg(feature = "glam")]
-pub use impl_glam::*;
+pub use impls::*;
 
 #[cfg(feature = "glam")]
 pub use glam;
+
+#[cfg(feature = "bevy_math")]
+pub use bevy_math;
 
 /// A "level of detail" in a [`Tree`].
 pub type Level = u8;
