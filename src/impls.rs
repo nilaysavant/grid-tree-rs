@@ -107,10 +107,10 @@ macro_rules! impl_unsigned_branch_shape {
 
 impl_unsigned_branch_shape!(QuadtreeShapeU32, UVec2, UVec2::from_array([1; 2]));
 impl_unsigned_branch_shape!(OctreeShapeU32, UVec3, UVec3::from_array([1; 3]));
-impl_unsigned_branch_shape!(OctreeShapeN8u32, UVec3, UVec3::from_array([8; 3]));
+impl_unsigned_branch_shape!(OctreeShapeN8u32, UVec3, UVec3::from_array([1; 3]));
 impl_signed_branch_shape!(QuadtreeShapeI32, IVec2, IVec2::from_array([1; 2]));
 impl_signed_branch_shape!(OctreeShapeI32, IVec3, IVec3::from_array([1; 3]));
-impl_signed_branch_shape!(OctreeShapeN8i32, IVec3, IVec3::from_array([8; 3]));
+impl_signed_branch_shape!(OctreeShapeN8i32, IVec3, IVec3::from_array([1; 3]));
 
 impl VectorKey for IVec2 {
     #[inline]
