@@ -36,7 +36,7 @@ pub type OctreeN8i32<T> = Tree<IVec3, OctreeShapeN8i32, T, 8>;
 /// The default octree with `u32` coordinates.
 pub type OctreeU32<T> = Tree<UVec3, OctreeShapeU32, T, 8>;
 /// The default octree with `u32` coordinates with size of 8x8x8.
-pub type OctreeN8u32<T> = Tree<IVec3, OctreeShapeN8u32, T, 8>;
+pub type OctreeN8u32<T> = Tree<UVec3, OctreeShapeN8u32, T, 8>;
 
 impl<T> QuadtreeI32<T> {
     pub fn new(height: Level) -> Self {
@@ -53,7 +53,17 @@ impl<T> OctreeI32<T> {
         unsafe { Self::new_generic(height) }
     }
 }
+impl<T> OctreeN8i32<T> {
+    pub fn new(height: Level) -> Self {
+        unsafe { Self::new_generic(height) }
+    }
+}
 impl<T> OctreeU32<T> {
+    pub fn new(height: Level) -> Self {
+        unsafe { Self::new_generic(height) }
+    }
+}
+impl<T> OctreeN8u32<T> {
     pub fn new(height: Level) -> Self {
         unsafe { Self::new_generic(height) }
     }
