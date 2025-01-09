@@ -6,7 +6,6 @@ use glam::{IVec2, IVec3, UVec2, UVec3};
 #[cfg(feature = "bevy_math")]
 use bevy_math::{IVec2, IVec3, UVec2, UVec3};
 
-
 use ndshape::{
     ConstPow2Shape2i32, ConstPow2Shape2u32, ConstPow2Shape3i32, ConstPow2Shape3u32, ConstShape,
 };
@@ -18,8 +17,12 @@ pub type QuadtreeShapeU32 = ConstPow2Shape2u32<1, 1>;
 
 /// A [`BranchShape`] for signed octrees.
 pub type OctreeShapeI32 = ConstPow2Shape3i32<1, 1, 1>;
+/// A [`BranchShape`] for signed octrees with size of 8x8x8.
+pub type OctreeShapeN8i32 = ConstPow2Shape3i32<8, 8, 8>;
 /// A [`BranchShape`] for unsigned octrees.
 pub type OctreeShapeU32 = ConstPow2Shape3u32<1, 1, 1>;
+/// A [`BranchShape`] for unsigned octrees with size of 8x8x8.
+pub type OctreeShapeN8u32 = ConstPow2Shape3u32<8, 8, 8>;
 
 /// The default quadtree with `i32` coordinates.
 pub type QuadtreeI32<T> = Tree<IVec2, QuadtreeShapeI32, T, 4>;
@@ -28,8 +31,12 @@ pub type QuadtreeU32<T> = Tree<UVec2, QuadtreeShapeU32, T, 4>;
 
 /// The default octree with `i32` coordinates.
 pub type OctreeI32<T> = Tree<IVec3, OctreeShapeI32, T, 8>;
+/// The default octree with `i32` coordinates with size of 8x8x8.
+pub type OctreeN8i32<T> = Tree<IVec3, OctreeShapeN8i32, T, 8>;
 /// The default octree with `u32` coordinates.
 pub type OctreeU32<T> = Tree<UVec3, OctreeShapeU32, T, 8>;
+/// The default octree with `u32` coordinates with size of 8x8x8.
+pub type OctreeN8u32<T> = Tree<IVec3, OctreeShapeN8u32, T, 8>;
 
 impl<T> QuadtreeI32<T> {
     pub fn new(height: Level) -> Self {
@@ -90,8 +97,10 @@ macro_rules! impl_unsigned_branch_shape {
 
 impl_unsigned_branch_shape!(QuadtreeShapeU32, UVec2, UVec2::from_array([1; 2]));
 impl_unsigned_branch_shape!(OctreeShapeU32, UVec3, UVec3::from_array([1; 3]));
+impl_unsigned_branch_shape!(OctreeShapeN8u32, UVec3, UVec3::from_array([8; 3]));
 impl_signed_branch_shape!(QuadtreeShapeI32, IVec2, IVec2::from_array([1; 2]));
 impl_signed_branch_shape!(OctreeShapeI32, IVec3, IVec3::from_array([1; 3]));
+impl_signed_branch_shape!(OctreeShapeN8i32, IVec3, IVec3::from_array([8; 3]));
 
 impl VectorKey for IVec2 {
     #[inline]
